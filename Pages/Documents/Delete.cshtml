@@ -1,0 +1,50 @@
+﻿@page
+@model NeaguDenisa_Proiect.Pages.Documents.DeleteModel
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Reviste</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<h1 class="titlu">Stergere revista</h1>
+
+
+<h3>Esti sigur ca vrei sa stergi revista selectata?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Document.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Document.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Document.Author)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Document.Author)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Document.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Document.Price)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Document.PublishingDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Document.PublishingDate)
+        </dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="Document.ID" />
+        <input type="submit" value="Sterge" class="btn btn-danger" /> |
+        <a asp-page="./Index">Inapoi la lista</a>
+    </form>
+</div>

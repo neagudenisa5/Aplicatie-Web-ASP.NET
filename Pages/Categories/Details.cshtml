@@ -1,0 +1,28 @@
+﻿@page
+@model NeaguDenisa_Proiect.Pages.Categories.DetailsModel
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Reviste</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<h1 class="titlu">Detalii categorie</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Category.CategoryName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Category.CategoryName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Category.ID">Editeaza</a> |
+    <a asp-page="./Index">Inapoi la lista</a>
+</div>

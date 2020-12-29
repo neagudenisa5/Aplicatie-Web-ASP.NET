@@ -1,0 +1,40 @@
+﻿@page
+@model NeaguDenisa_Proiect.Pages.Categories.IndexModel
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Reviste</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<h1 class="titlu">Categorii</h1>
+
+<p>
+    <a asp-page="Create">Adauga o noua categorie</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Category[0].CategoryName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Category)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryName)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Editeaza</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Detalii</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Sterge</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

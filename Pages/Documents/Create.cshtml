@@ -1,0 +1,82 @@
+﻿@page
+@model NeaguDenisa_Proiect.Pages.Documents.CreateModel
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Reviste</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<h1 class="titlu">Adauga o noua revista</h1>
+
+
+<h4>Revista</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Document.Title" class="control-label"></label>
+                <input asp-for="Document.Title" class="form-control" />
+                <span asp-validation-for="Document.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Document.Author" class="control-label"></label>
+                <input asp-for="Document.Author" class="form-control" />
+                <span asp-validation-for="Document.Author" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Document.Price" class="control-label"></label>
+                <input asp-for="Document.Price" class="form-control" />
+                <span asp-validation-for="Document.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Document.PublishingDate" class="control-label"></label>
+                <input asp-for="Document.PublishingDate" class="form-control" />
+                <span asp-validation-for="Document.PublishingDate" class="textdanger"></span>
+            </div>
+            <label asp-for="Document.PublisherID" class="control-label">Publisher Name</label>
+            <select asp-for="Document.PublisherID" class="form-control" asp-items="ViewBag.PublisherID">
+            </select>
+            <span asp-validation-for="Document.PublisherID" class="text-danger"></span>
+            <div class="form-group">
+                <div class="table">
+                    <table>
+                        <tr>
+                            @{
+                                int cnt = 0;
+                                foreach (var cat in Model.AssignedCategoryDataList)
+                                {
+                                    if (cnt++ % 3 == 0)
+                                    {
+                                    @:</tr><tr>
+                                    }
+                                    @:<td>
+                                        <input type="checkbox"
+                                               name="selectedCourses"
+                                               value="@cat.CategoryID"
+                                               @(Html.Raw(cat.Assigned ? "checked=\"checked\"" : "")) />
+                                        @cat.CategoryID @: @cat.Name
+                                    @:</td>
+                                }
+                            @:</tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Salvare" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-page="Index">Inapoi la lista</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

@@ -9,6 +9,7 @@ namespace NeaguDenisa_Proiect.Models
 {
     public class Document
     {
+        //Proprietatile unei reviste
         public int ID { get; set; } //campul unic de identificare a inregistrarii (cheia primara)
         [Display(Name = "Numele revistei")]
         //minim 2 caractere, maxim 50, completat obligatoriu
@@ -23,7 +24,7 @@ namespace NeaguDenisa_Proiect.Models
         //$ marcheaza sfarsitul sirului de caractere
         [Display(Name = "Autorul")]
         public string Author { get; set; } //autorul revistei
-        [Display(Name = "Pretul in lei")]
+        [Display(Name = "Pretul (Lei)")]
         [Column(TypeName = "decimal(6, 2)")]
         //pret maxim 50 de lei
         [Range(1, 50, ErrorMessage = "Vă rugăm să introduceți o valoare între 1 și 50 de lei")]
@@ -36,5 +37,6 @@ namespace NeaguDenisa_Proiect.Models
         public Publisher Publisher { get; set; } //proprietatea de navighare a editurii
         [Display(Name = "Categoria")]
         public ICollection<DocumentCategory> DocumentCategories { get; set; }
+        
     }
 }

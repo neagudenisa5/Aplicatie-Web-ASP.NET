@@ -40,6 +40,9 @@
             <label asp-for="Document.PublisherID" class="control-label">Publisher Name</label>
             <select asp-for="Document.PublisherID" class="form-control" asp-items="ViewBag.PublisherID">
             </select>
+            <div class="form-group">
+                <label asp-for="Document.DocumentCategories"  class="control-label"></label>
+            </div>
             <span asp-validation-for="Document.PublisherID" class="text-danger"></span>
             <div class="form-group">
                 <div class="table">
@@ -55,7 +58,7 @@
                                     }
                                     @:<td>
                                         <input type="checkbox"
-                                               name="selectedCourses"
+                                               name="selectedCategories"
                                                value="@cat.CategoryID"
                                                @(Html.Raw(cat.Assigned ? "checked=\"checked\"" : "")) />
                                         @cat.CategoryID @: @cat.Name

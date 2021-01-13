@@ -36,7 +36,7 @@
                 <input asp-for="Document.PublishingDate" class="form-control" />
                 <span asp-validation-for="Document.PublishingDate" class="textdanger"></span>
             </div>
-            <label asp-for="Document.PublisherID" class="control-label">Publisher Name</label>
+            <label asp-for="Document.PublisherID" class="control-label">Numele editurii</label>
             <select asp-for="Document.PublisherID" class="form-control" asp-items="ViewBag.PublisherID">
             </select>
             <span asp-validation-for="Document.PublisherID" class="text-danger"></span>
@@ -57,7 +57,7 @@
                                                name="selectedCategories"
                                                value="@cat.CategoryID"
                                                @(Html.Raw(cat.Assigned ? "checked=\"checked\"" : "")) />
-                                        @cat.CategoryID @: @cat.Name
+                                         @cat.Name
                                     @:</td>
                                 }
                             @:</tr>
@@ -67,7 +67,7 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="submit" value="Salvaare" class="btn btn-primary" />
+                    <input type="submit" value="Salvare" class="btn btn-primary" />
                 </div>
             </form>
         </div>

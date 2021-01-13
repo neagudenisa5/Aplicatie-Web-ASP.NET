@@ -11,6 +11,7 @@ namespace NeaguDenisa_Proiect.Models
     {
         public int ID { get; set; }
         [Display(Name = "Numele categoriei")]
+        [Required(ErrorMessage = "Numele categoriei nu poate fi lăsat necompletat")]
         public string CategoryName { get; set; }
         public ICollection<DocumentCategory> DocumentCategories { get; set; }
     }

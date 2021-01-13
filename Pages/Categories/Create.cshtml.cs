@@ -38,7 +38,7 @@ namespace NeaguDenisa_Proiect.Pages.Categories
 
             _context.Category.Add(Category);
             await _context.SaveChangesAsync();
-
+            //daca a fost apasat butonul de salvare, se va crea o categorie noua si ne va redirectiona catre lista cu toate categoriile
             return RedirectToPage("./Index");
         }
     }
